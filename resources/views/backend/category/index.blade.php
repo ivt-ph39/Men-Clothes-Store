@@ -18,6 +18,7 @@
 					<tr>
 						<th width="150">ID</th>
 						<th>Name</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -25,6 +26,14 @@
 					<tr>
 						<td>{{$category->id}}</td>
 						<td>{{$category->name}}</td>
+						<td>
+							<a class="btn btn-secondary btn-sm" href="{{route('admin-category-edit', $category->id)}}">Edit</a>
+							<form action="{{route('admin-category-destroy', $category->id)}}" method="POST" style="display: inline-block;">
+								@csrf
+								@method('DELETE')
+								<button class="btn btn-danger btn-sm">Delete</button>
+							</form>
+						</td>
 					</tr>
 					@endforeach
 				</tbody>

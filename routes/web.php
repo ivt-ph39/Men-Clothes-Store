@@ -20,3 +20,6 @@ Route::get('/home', 'Admin\DashboardController@index')->name('admin-dashboard');
 Route::get('/categories', 'Admin\CategoryController@index')->name('admin-category-index');
 Route::get('/categories/add', 'Admin\CategoryController@create')->name('admin-category-create');
 Route::post('/categories', 'Admin\CategoryController@store')->name('admin-category-store');
+Route::get('/categories/{id}/edit', 'Admin\CategoryController@edit')->name('admin-category-edit');
+Route::put('/categories/{id}', 'Admin\CategoryController@update')->name('admin-category-update');
+Route::delete('/categories/{id}', 'Admin\CategoryController@destroy')->name('admin-category-destroy');

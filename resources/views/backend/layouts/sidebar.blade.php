@@ -27,7 +27,6 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('admin-category-index') }}">Xem danh sách</a>
             <a class="collapse-item" href="{{ route('admin-category-create') }}">Thêm</a>
-            <a class="collapse-item" href="">Sửa</a>
           </div>
         </div>
       </li>
