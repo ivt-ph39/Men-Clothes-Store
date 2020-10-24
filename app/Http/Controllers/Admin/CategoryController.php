@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Category;
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard.index');
+        $categories = Category::all();
+        // dd($categories);
+        return view('backend.category.index', compact('categories'));
     }
 
     /**
@@ -24,7 +27,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.category.create');
     }
 
     /**
@@ -35,7 +38,10 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only('name');
+        // dd($data);
+        Category::create($data);
+        return redirect()->route('admin-category-index');
     }
 
     /**
@@ -57,7 +63,9 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        // dd($category);
+        return view('backend.category.edit', compact('category'));
     }
 
     /**
@@ -69,7 +77,9 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->only('name');
+        Category::find($id)->update($data);
+        return redirect()->route('admin-category-index');
     }
 
     /**
@@ -80,6 +90,7 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::find($id)->delete();
+        return redirect()->route('admin-category-index');
     }
 }
