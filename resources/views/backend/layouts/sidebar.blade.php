@@ -21,25 +21,25 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-          <span>Category</span>
+          <span>Danh mục SP</span>
         </a>
         <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">List</a>
-            <a class="collapse-item" href="">Add</a>
-            <a class="collapse-item" href="">Edit</a>
+            <a class="collapse-item" href="{{ route('admin-category-index') }}">Xem danh sách</a>
+            <a class="collapse-item" href="{{ route('admin-category-create') }}">Thêm</a>
+            <a class="collapse-item" href="">Sửa</a>
           </div>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
-          <span>Products</span>
+          <span>Sản phẩm</span>
         </a>
         <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">List</a>
-            <a class="collapse-item" href="">Add</a>
-            <a class="collapse-item" href="">Edit</a>
+            <a class="collapse-item" href="">Xem danh sách</a>
+            <a class="collapse-item" href="">Thêm</a>
+            <a class="collapse-item" href="">Sửa</a>
           </div>
         </div>
       </li>
@@ -52,6 +52,15 @@
             <a class="collapse-item" href="">Order Processing</a>
           </div>
         </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <span>Create new User</span></a>
       </li>
 
       <!-- Divider -->
