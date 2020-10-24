@@ -17,3 +17,4 @@ Route::get('/', function () {
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('form-login');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/home', 'Admin\DashboardController@index')->name('admin-dashboard');
+Route::get('/categories', 'Admin\CategoryController@index')
