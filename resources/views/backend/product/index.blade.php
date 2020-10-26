@@ -42,6 +42,11 @@
 					@endforeach
 				</tbody>
 			</table>
+			@if($products->hasPages())
+           <div class="">
+             {{ $products->links() }}
+           </div>
+         @endif
 		</div>
 	</div>
 </div>

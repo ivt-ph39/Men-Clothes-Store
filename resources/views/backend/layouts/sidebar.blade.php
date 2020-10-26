@@ -36,7 +36,7 @@
         </a>
         <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">Xem danh sách</a>
+            <a class="collapse-item" href="{{ route('admin-product-index') }}">Xem danh sách</a>
             <a class="collapse-item" href="">Thêm</a>
             <a class="collapse-item" href="">Sửa</a>
           </div>

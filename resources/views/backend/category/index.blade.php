@@ -38,6 +38,11 @@
 					@endforeach
 				</tbody>
 			</table>
+			@if($categories->hasPages())
+           <div class="">
+             {{ $categories->links() }}
+           </div>
+         @endif
 		</div>
 	</div>
 </div>
