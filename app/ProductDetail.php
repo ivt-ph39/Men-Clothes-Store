@@ -8,11 +8,11 @@ class ProductDetail extends Model
 {
     protected $fillable = 
     [
-    	
+    	'detail', 'product_id'
     ];
 
     public function product()
     {
     	return $this->belongsTo('App\Product');
-    };
+    }
 }
