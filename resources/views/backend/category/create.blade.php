@@ -9,6 +9,6 @@
 		<label for="">Nhập tên Danh mục sản phẩm muốn tạo</label>
 		<input class="form-control " type="text" name="name">
 	</div>
-	<button class="btn btn-success">Create</button>
+	<button class="btn btn-success">Thêm</button>
 </form>
 @endsection

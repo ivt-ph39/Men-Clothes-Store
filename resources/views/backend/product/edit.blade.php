@@ -3,8 +3,10 @@
 @section('title') Add Product @endsection
 
 @section('content')
-<form class="row justify-content-center" action="{{route('admin-product-store')}}" method="POST" enctype="multipart/form-data">
+@foreach($product as $product)
+<form class="row justify-content-center" action="{{route('admin-product-update', $product->id)}}" method="POST" enctype="multipart/form-data">
    @csrf
+   @method('PUT')
    <div class="col-md-6">
       <div class="form-group">
          <label for="">Tên danh mục</label>
@@ -14,18 +16,19 @@
             @endforeach
          </select>
       </div>
+
       <div class="form-group">
          <label for="">Nhập tên Sản phẩm</label>
-         <input class="form-control" type="text" name="name" value="">
+         <input class="form-control" type="text" name="name" value="{{$product->name}}">
       </div>
 
       <div class="form-group">
          <label for="">Giá tiền</label>
-         <input class="form-control" type="text" name="price">
+         <input class="form-control" type="text" name="price" value="{{$product->price}}">
       </div>
       <div class="form-group">
          <label for="">Size</label>
-         <select class="form-control" name="size" id="">
+         <select class="form-control" name="size" id="" value="{{$product->size}}">
             @foreach($listSize as $size)
             <option>{{$size}}</option>
             @endforeach
@@ -37,25 +40,25 @@
       </div>
       <div class="form-group">
          <label for="">Mô tả</label>
-         <textarea class="form-control" id="" rows="7" name="description"></textarea>
+         <textarea class="form-control" id="" rows="7" name="description">{{$product->description}}</textarea>
       </div>
    </div>
-   
+
    <div class="col-md-6">
-      
+
       <div class="form-group">
          <label for="">Số lượng</label>
-         <input class="form-control" type="text" name="quantities">
+         <input class="form-control" type="text" name="quantities" value="{{$product->quantities}}">
       </div>
       <div class="form-group">
          <label for="">Chi tiết</label>
-         <textarea class="form-control" id="" rows="21" name="detail"></textarea>
+         <textarea class="form-control" id="" rows="21" name="detail">{{$product->detail}}</textarea>
       </div>
    </div>
    
-   <div class="">
-      <button class="btn btn-success">Create</button>
+   <div>
+      <button class="btn btn-success">Edit</button>
    </div>
-   
 </form>
+@endforeach
 @endsection

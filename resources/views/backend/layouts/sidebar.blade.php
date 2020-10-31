@@ -37,8 +37,7 @@
         <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('admin-product-index') }}">Xem danh sách</a>
-            <a class="collapse-item" href="">Thêm</a>
-            <a class="collapse-item" href="">Sửa</a>
+            <a class="collapse-item" href="{{ route('admin-product-create') }}">Thêm</a>
           </div>
         </div>
       </li>
@@ -53,13 +52,16 @@
         </div>
       </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="">
-          <span>Create new User</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+          <span>User</span>
+        </a>
+        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="">Quản lý User</a>
+            <a class="collapse-item" href="">Tạo User mới</a>
+          </div>
+        </div>
       </li>
 
       <!-- Divider -->

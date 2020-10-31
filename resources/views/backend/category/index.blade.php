@@ -9,16 +9,16 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
 	<div class="card-header py-3">
-		<h6 class="m-0 font-weight-bold text-primary">Danh mục sản phẩm</h6>
+		<a class="btn btn-success" href="{{route('admin-category-create')}}"><i class="fas fa-plus"></i> Thêm</a>
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 				<thead>
 					<tr>
-						<th width="150">ID</th>
+						<th width="100">ID</th>
 						<th>Name</th>
-						<th>Action</th>
+						<th width="250">Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -27,11 +27,11 @@
 						<td>{{$category->id}}</td>
 						<td>{{$category->name}}</td>
 						<td>
-							<a class="btn btn-secondary btn-sm" href="{{route('admin-category-edit', $category->id)}}">Edit</a>
+							<a class="btn btn-secondary btn-sm" href="{{route('admin-category-edit', $category->id)}}"><i class="fas fa-edit"></i> Edit</a>
 							<form action="{{route('admin-category-destroy', $category->id)}}" method="POST" style="display: inline-block;">
 								@csrf
 								@method('DELETE')
-								<button class="btn btn-danger btn-sm">Delete</button>
+								<button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
 							</form>
 						</td>
 					</tr>
