@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\User;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Requests\CreateUserRequest;
 
-class CategoryController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10);
-        return view('backend.category.index', compact('categories'));
+        $roleUser = User::$role;
+        $users = User::paginate(10);
+        return view('backend.user.index', compact('users', 'roleUser'));
     }
 
     /**
@@ -27,7 +28,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.category.create');
+        $roleUser = User::$role;
+        return view('backend.user.create', compact('roleUser'));
     }
 
     /**
@@ -36,12 +38,12 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateCategoryRequest $request)
+    public function store(CreateUserRequest $request)
     {
-        $data = $request->only('name');
+        $data = $request->only('name', 'email', 'password', 'role');
         // dd($data);
-        Category::create($data);
-        return redirect()->route('admin-category-index');
+        User::create($data);
+        return redirect()->route('admin-user-index');
     }
 
     /**
@@ -63,9 +65,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        // dd($category);
-        return view('backend.category.edit', compact('category'));
+        //
     }
 
     /**
@@ -77,9 +77,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only('name');
-        Category::find($id)->update($data);
-        return redirect()->route('admin-category-index');
+        //
     }
 
     /**
@@ -90,7 +88,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::find($id)->delete();
-        return redirect()->route('admin-category-index');
+        //
     }
 }
