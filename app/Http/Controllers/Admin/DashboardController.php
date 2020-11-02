@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Category;
+use App\Product;
+use App\User;
+use App\Order;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
@@ -14,7 +18,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard.index');
+        $countCate = Category::all()->count();
+        $countProduct = Product::all()->count();
+        $countOrder = Order::all()->count();
+        $countUser = User::all()->count();
+        return view('backend.dashboard.index', compact('countCate', 'countProduct', 'countOrder', 'countUser'));
     }
 
     /**

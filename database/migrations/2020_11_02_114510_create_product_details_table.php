@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddProductDetailsTable extends Migration
+class CreateProductDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,7 @@ class AddProductDetailsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id');
             $table->text('detail');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

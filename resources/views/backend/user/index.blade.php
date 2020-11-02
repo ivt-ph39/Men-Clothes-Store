@@ -37,8 +37,8 @@
 						<td>{{$user->gender}}</td>
 						<td>{{$roleUser[$user->role]}}</td>
 						<td>
-							<a class="btn btn-secondary btn-sm" href=""><i class="fas fa-edit"></i> Edit</a>
-							<form action="" method="POST" style="display: inline-block;">
+							<a class="btn btn-secondary btn-sm" href="{{route('admin-user-edit', $user->id)}}"><i class="fas fa-edit"></i> Edit role</a>
+							<form action="{{route('admin-user-destroy', $user->id)}}" method="POST" style="display: inline-block;">
 								@csrf
 								@method('DELETE')
 								<button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>

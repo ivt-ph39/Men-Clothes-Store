@@ -36,3 +36,6 @@ Route::delete('/products/{id}', 'Admin\ProductController@destroy')->name('admin-
 Route::get('/users', 'Admin\UserController@index')->name('admin-user-index');
 Route::get('/users/add', 'Admin\UserController@create')->name('admin-user-create');
 Route::post('/users', 'Admin\UserController@store')->name('admin-user-store');
+Route::get('/users/{id}/edit', 'Admin\UserController@edit')->name('admin-user-edit');
+Route::put('/users/{id}', 'Admin\UserController@update')->name('admin-user-update');
+Route::delete('/users/{id}', 'Admin\UserController@destroy')->name('admin-user-destroy');

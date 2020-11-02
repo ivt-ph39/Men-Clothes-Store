@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropProductDetailsTable extends Migration
+class CreateSlidesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,12 @@ class DropProductDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('product_details');
+        Schema::create('slides', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('path');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class DropProductDetailsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('slides');
     }
 }

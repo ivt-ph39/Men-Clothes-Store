@@ -65,7 +65,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $roleUser = User::$role;
+        return view('backend.user.edit', compact('user','roleUser'));
     }
 
     /**
@@ -77,7 +79,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->only('name', 'email', 'role');
+        User::find($id)->update($data);
+        return redirect()->route('admin-user-index');
     }
 
     /**
@@ -88,6 +92,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        return redirect()->route('admin-user-index');
     }
 }
