@@ -41,7 +41,6 @@ class UserController extends Controller
     public function store(CreateUserRequest $request)
     {
         $data = $request->only('name', 'email', 'password', 'role');
-        // dd($data);
         User::create($data);
         return redirect()->route('admin-user-index');
     }
@@ -54,7 +53,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $roleUser = User::$role;
+        return view('backend.user.show', compact('user', 'roleUser'));
     }
 
     /**
@@ -79,7 +80,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only('name', 'email', 'role');
+        $data = $request->only('name', 'email', 'phone', 'address', 'gender', 'role');
         User::find($id)->update($data);
         return redirect()->route('admin-user-index');
     }
@@ -94,5 +95,19 @@ class UserController extends Controller
     {
         User::find($id)->delete();
         return redirect()->route('admin-user-index');
+    }
+
+    public function updateRole(Request $request, $id)
+    {
+        $data = $request->only('role');
+        User::find($id)->update($data);
+        return redirect()->route('admin-user-index');
+    }
+
+    public function editRole($id)
+    {
+        $user = User::find($id);
+        $roleUser = User::$role;
+        return view('backend.user.edit-role', compact('user','roleUser'));
     }
 }
