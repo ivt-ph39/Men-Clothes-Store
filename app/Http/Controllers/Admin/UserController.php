@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Category;
-use App\Product;
 use App\User;
-use App\Order;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateUserRequest;
 
-class DashboardController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +16,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $countCate = Category::all()->count();
-        $countProduct = Product::all()->count();
-        $countOrder = Order::all()->count();
-        $countUser = User::all()->count();
-        return view('backend.dashboard.index', compact('countCate', 'countProduct', 'countOrder', 'countUser'));
+        $roleUser = User::$role;
+        $users = User::paginate(10);
+        return view('backend.user.index', compact('users', 'roleUser'));
     }
 
     /**
@@ -32,7 +28,8 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        $roleUser = User::$role;
+        return view('backend.user.create', compact('roleUser'));
     }
 
     /**
@@ -41,9 +38,12 @@ class DashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-        //
+        $data = $request->only('name', 'email', 'password', 'role');
+        // dd($data);
+        User::create($data);
+        return redirect()->route('admin-user-index');
     }
 
     /**
@@ -65,7 +65,9 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $roleUser = User::$role;
+        return view('backend.user.edit', compact('user','roleUser'));
     }
 
     /**
@@ -77,7 +79,9 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->only('name', 'email', 'role');
+        User::find($id)->update($data);
+        return redirect()->route('admin-user-index');
     }
 
     /**
@@ -88,6 +92,7 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        return redirect()->route('admin-user-index');
     }
 }

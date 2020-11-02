@@ -36,7 +36,7 @@
 							<div class="col-lg-12">
 								<div class="p-5">
 									<div class="text-center">
-										<h1 class="h4 text-gray-900 mb-4">Đăng nhập</h1>
+										<h1 class="h4 text-gray-900 mb-4"><b>Đăng nhập</b></h1>
 									</div>
 									<form class="user" action="{{route('login')}}" method="POST">
 										@csrf
@@ -58,13 +58,13 @@
 										<button class="btn btn-primary btn-user btn-block" type="submit">
 											Đăng nhập
 										</button>
-										<hr>
+										<!-- <hr>
 										<a href="#" class="btn btn-google btn-user btn-block">
 											<i class="fab fa-google fa-fw"></i> Đăng nhập bằng Google
 										</a>
 										<a href="#" class="btn btn-facebook btn-user btn-block">
 											<i class="fab fa-facebook-f fa-fw"></i> Đăng nhập bằng Facebook
-										</a>
+										</a> -->
 									</form>
 									<hr>
 									<div class="text-center">

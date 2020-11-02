@@ -35,7 +35,6 @@
 						<td>{{$product->price}}</td>
 						<td>{{$product->quantities}}</td>
 						<td>
-
 							<a class="btn btn-secondary btn-sm" href="{{route('admin-product-edit', $product->id)}}"><i class="fas fa-edit"></i> Edit</a>
 							<form action="{{route('admin-product-destroy', $product->id)}}" method="POST" style="display: inline-block;">
 								@csrf
