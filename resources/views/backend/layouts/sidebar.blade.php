@@ -43,11 +43,11 @@
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-          <span>Order</span>
+          <span>Đặt hàng</span>
         </a>
         <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">Order Processing</a>
+            <a class="collapse-item" href="{{ route('admin-order-index') }}">Quản lý đơn hàng</a>
           </div>
         </div>
       </li>

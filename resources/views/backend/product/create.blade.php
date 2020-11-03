@@ -17,11 +17,17 @@
       <div class="form-group">
          <label for="">Nhập tên Sản phẩm</label>
          <input class="form-control" type="text" name="name" value="">
+         @if ($errors->has('name'))
+            <p class="alert-danger mt-2">{{ $errors->first('name') }}</p>
+         @endif
       </div>
 
       <div class="form-group">
          <label for="">Giá tiền</label>
          <input class="form-control" type="text" name="price">
+         @if ($errors->has('price'))
+            <p class="alert-danger mt-2">{{ $errors->first('price') }}</p>
+         @endif
       </div>
       <div class="form-group">
          <label for="">Size</label>
@@ -30,14 +36,22 @@
             <option>{{$size}}</option>
             @endforeach
          </select>
+
       </div>
       <div class="form-group">
          <label for="">Ảnh</label>
          <input type="file" class="form-control-file" id="" name="image">
+         @if ($errors->has('image'))
+            <p class="alert-danger mt-2">{{ $errors->first('image') }}</p>
+         @endif
       </div>
+
       <div class="form-group">
          <label for="">Mô tả</label>
          <textarea class="form-control" id="" rows="7" name="description"></textarea>
+         @if ($errors->has('description'))
+            <p class="alert-danger mt-2">{{ $errors->first('description') }}</p>
+         @endif
       </div>
    </div>
    
@@ -46,10 +60,16 @@
       <div class="form-group">
          <label for="">Số lượng</label>
          <input class="form-control" type="text" name="quantities">
+         @if ($errors->has('quantities'))
+            <p class="alert-danger mt-2">{{ $errors->first('quantities') }}</p>
+         @endif
       </div>
       <div class="form-group">
          <label for="">Chi tiết</label>
          <textarea class="form-control" id="" rows="21" name="detail"></textarea>
+         @if ($errors->has('detail'))
+            <p class="alert-danger mt-2">{{ $errors->first('detail') }}</p>
+         @endif
       </div>
    </div>
    

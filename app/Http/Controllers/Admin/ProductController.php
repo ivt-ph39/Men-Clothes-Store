@@ -7,6 +7,7 @@ use App\Product;
 use App\Category;
 use App\ProductDetail;
 use DB;
+use App\Http\Requests\CreateProductRequest;
 use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
@@ -46,7 +47,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProductRequest $request)
     {
         $product_data = $request->only('category_id', 'name', 'price', 'size', 'description', 'quantities', 'image');
         $product_detail = $request->only('detail');

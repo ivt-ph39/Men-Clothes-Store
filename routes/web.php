@@ -36,6 +36,9 @@ Route::group(['nameapace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
 		Route::get('/products/{id}/edit', 'Admin\ProductController@edit')->name('admin-product-edit');
 		Route::put('/products/{id}', 'Admin\ProductController@update')->name('admin-product-update');
 		Route::delete('/products/{id}', 'Admin\ProductController@destroy')->name('admin-product-destroy');
+		// Order
+		Route::get('/orders', 'Admin\OrderController@index')->name('admin-order-index');
+		Route::get('/orders/{id}/show', 'Admin\OrderController@show')->name('admin-order-show');
 		// User
 		Route::get('/users', 'Admin\UserController@index')->name('admin-user-index');
 		Route::get('/users/add', 'Admin\UserController@create')->name('admin-user-create');

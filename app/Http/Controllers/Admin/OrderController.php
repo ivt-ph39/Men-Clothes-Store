@@ -3,10 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Order;
 use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $orderStatus = Order::ORDER_STATUS;
+        view()->share([
+            'orderStatus' => $orderStatus
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $order = Order::paginate(10);
+        return view('backend.order.index', compact('order'));
     }
 
     /**
@@ -46,7 +55,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::find($id);
+        return view('backend.order.show', compact('order'));
     }
 
     /**
