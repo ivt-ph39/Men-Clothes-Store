@@ -4,7 +4,7 @@
 
 @section('content')
 @foreach($product as $product)
-<form class="row justify-content-center" action="{{route('admin-product-update', $product->id)}}" method="POST" enctype="multipart/form-data">
+<form class="row justify-content-center" action="{{route('products.update', $product->id)}}" method="POST" enctype="multipart/form-data">
    @csrf
    @method('PUT')
    <div class="col-md-6">
@@ -52,7 +52,7 @@
       </div>
       <div class="form-group">
          <label for="">Chi tiết</label>
-         <textarea class="form-control" id="" rows="21" name="detail">{{$product->detail}}</textarea>
+         <textarea class="form-control" id="" rows="22" name="detail">{{$product->detail}}</textarea>
       </div>
    </div>
    

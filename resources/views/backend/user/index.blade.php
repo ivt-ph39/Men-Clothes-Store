@@ -9,7 +9,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
 	<div class="card-header py-3">
-		<a class="btn btn-success" href="{{ route('admin-user-create') }}"><i class="fas fa-plus"></i> Thêm</a>
+		<a class="btn btn-success" href="{{ route('users.create') }}"><i class="fas fa-plus"></i> Thêm</a>
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">
@@ -38,7 +38,7 @@
 						<td>{{$roleUser[$user->role]}}</td>
 						<td>
 							<a class="btn btn-secondary btn-sm" href="{{route('admin-user-edit-role', $user->id)}}"><i class="fas fa-edit"></i> Edit role</a>
-							<form action="{{route('admin-user-destroy', $user->id)}}" method="POST" style="display: inline-block;">
+							<form action="{{route('users.destroy', $user->id)}}" method="POST" style="display: inline-block;">
 								@csrf
 								@method('DELETE')
 								<button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>

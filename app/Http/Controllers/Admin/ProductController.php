@@ -52,14 +52,14 @@ class ProductController extends Controller
         $product_data = $request->only('category_id', 'name', 'price', 'size', 'description', 'quantities', 'image');
         $product_detail = $request->only('detail');
         if ($request->hasFile('image')) {
-            $name = rand(1,1000).$request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path('\img'), $name);
-            $product_data['image'] = '/img/'.$name;
+            $name = rand(1,1000).$request->file('image')->getClientOriginalName(); //Thiết lập tên cho ảnh
+            $request->file('image')->move(public_path('\img'), $name); //Lưu ảnh với tên vừa tạo vào thư mục /img
+            $product_data['image'] = '/img/'.$name; //Lưu đường dẫn ảnh vào DB
         }
         $productID = Product::create($product_data)->id; //Lưu data vào bảng product và lấy product id
         $product_detail['product_id'] = $productID; //Gán product id cho product_id ở bảng product_detail
         ProductDetail::create($product_detail); //Lưu data vào bảng product_detail
-        return redirect()->route('admin-product-index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -110,7 +110,7 @@ class ProductController extends Controller
         }
         $product_data->save();
         DB::table('product_details')->where('product_id', '=', $id)->update(['detail' => $request->detail]);
-        return redirect()->route('admin-product-index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -122,6 +122,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         Product::find($id)->delete();
-        return redirect()->route('admin-product-index');
+        return redirect()->route('products.index');
     }
 }

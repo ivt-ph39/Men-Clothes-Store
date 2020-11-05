@@ -42,7 +42,7 @@ class UserController extends Controller
     {
         $data = $request->only('name', 'email', 'password', 'role');
         User::create($data);
-        return redirect()->route('admin-user-index');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -82,7 +82,7 @@ class UserController extends Controller
     {
         $data = $request->only('name', 'email', 'phone', 'address', 'gender', 'role');
         User::find($id)->update($data);
-        return redirect()->route('admin-user-index');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -94,14 +94,14 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        return redirect()->route('admin-user-index');
+        return redirect()->route('users.index');
     }
 
     public function updateRole(Request $request, $id)
     {
         $data = $request->only('role');
         User::find($id)->update($data);
-        return redirect()->route('admin-user-index');
+        return redirect()->route('users.index');
     }
 
     public function editRole($id)

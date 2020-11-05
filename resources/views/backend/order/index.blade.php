@@ -51,7 +51,7 @@
 						<td>{{$ord->email}}</td>
 						<td>{{$ord->total}}</td>
 						<td>
-							<a class="btn btn-secondary btn-sm" href="{{route('admin-order-show', $ord->id)}}"><i class="fas fa-edit"></i> Detail</a>
+							<a class="btn btn-secondary btn-sm" href="{{route('order.details.show', $ord->id)}}"><i class="fas fa-edit"></i> Chi tiết đơn hàng</a>
 						</td>
 					</tr>
 					@endforeach

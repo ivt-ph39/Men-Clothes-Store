@@ -7,7 +7,7 @@
 <h1 class="h3 mb-2 text-gray-800">Chỉnh sửa role</h1>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-	<form class="col-md-4" action="{{route('admin-user-update', $user->id)}}" method="POST">
+	<form class="col-md-4" action="{{route('users.update', $user->id)}}" method="POST">
 		@csrf
 		@method('PUT')
 		<div class="form-group">

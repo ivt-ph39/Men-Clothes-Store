@@ -9,7 +9,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
 	<div class="card-header py-3">
-		<a class="btn btn-success" href="{{route('admin-category-create')}}"><i class="fas fa-plus"></i> Thêm</a>
+		<a class="btn btn-success" href="{{route('categories.create')}}"><i class="fas fa-plus"></i> Thêm</a>
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">
@@ -27,8 +27,8 @@
 						<td>{{$category->id}}</td>
 						<td>{{$category->name}}</td>
 						<td>
-							<a class="btn btn-secondary btn-sm" href="{{route('admin-category-edit', $category->id)}}"><i class="fas fa-edit"></i> Edit</a>
-							<form action="{{route('admin-category-destroy', $category->id)}}" method="POST" style="display: inline-block;">
+							<a class="btn btn-secondary btn-sm" href="{{route('categories.edit', $category->id)}}"><i class="fas fa-edit"></i> Edit</a>
+							<form action="{{route('categories.destroy', $category->id)}}" method="POST" style="display: inline-block;">
 								@csrf
 								@method('DELETE')
 								<button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>

@@ -9,7 +9,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
 	<div class="card-header py-3">
-		<a class="btn btn-success" href="{{route('admin-product-create')}}"><i class="fas fa-plus"></i> Thêm</a>
+		<a class="btn btn-success" href="{{route('products.create')}}"><i class="fas fa-plus"></i> Thêm</a>
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">
@@ -35,8 +35,8 @@
 						<td>{{$product->price}}</td>
 						<td>{{$product->quantities}}</td>
 						<td>
-							<a class="btn btn-secondary btn-sm" href="{{route('admin-product-edit', $product->id)}}"><i class="fas fa-edit"></i> Edit</a>
-							<form action="{{route('admin-product-destroy', $product->id)}}" method="POST" style="display: inline-block;">
+							<a class="btn btn-secondary btn-sm" href="{{route('products.edit', $product->id)}}"><i class="fas fa-edit"></i> Edit</a>
+							<form action="{{route('products.destroy', $product->id)}}" method="POST" style="display: inline-block;">
 								@csrf
 								@method('DELETE')
 								<button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>

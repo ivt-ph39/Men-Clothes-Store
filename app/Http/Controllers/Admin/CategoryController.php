@@ -41,7 +41,7 @@ class CategoryController extends Controller
         $data = $request->only('name');
         // dd($data);
         Category::create($data);
-        return redirect()->route('admin-category-index');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -79,7 +79,7 @@ class CategoryController extends Controller
     {
         $data = $request->only('name');
         Category::find($id)->update($data);
-        return redirect()->route('admin-category-index');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -91,6 +91,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::find($id)->delete();
-        return redirect()->route('admin-category-index');
+        return redirect()->route('categories.index');
     }
 }

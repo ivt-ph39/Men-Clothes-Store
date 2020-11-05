@@ -7,7 +7,7 @@
 <h1 class="h3 mb-2 text-gray-800">Tạo người dùng</h1>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-	<form class="col-md-4" action="{{route('admin-user-store')}}" method="POST">
+	<form class="col-md-4" action="{{route('users.store')}}" method="POST">
 		@csrf
 		<div class="form-group">
 			

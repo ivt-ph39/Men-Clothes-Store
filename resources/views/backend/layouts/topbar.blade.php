@@ -49,11 +49,11 @@
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 @php ($id = \Auth::user()->id)
-                <a class="dropdown-item" href="{{route('admin-user-show', $id)}}">
+                <a class="dropdown-item" href="{{route('users.show', $id)}}">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <a class="dropdown-item" href="{{route('admin-user-edit', $id)}}">
+                <a class="dropdown-item" href="{{route('users.edit', $id)}}">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Chỉnh sửa thông tin
                 </a>

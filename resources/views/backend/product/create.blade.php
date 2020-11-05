@@ -3,7 +3,7 @@
 @section('title') Add Product @endsection
 
 @section('content')
-<form class="row justify-content-center" action="{{route('admin-product-store')}}" method="POST" enctype="multipart/form-data">
+<form class="row justify-content-center" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
    @csrf
    <div class="col-md-6">
       <div class="form-group">
@@ -15,18 +15,24 @@
          </select>
       </div>
       <div class="form-group">
-         <label for="">Nhập tên Sản phẩm</label>
-         <input class="form-control" type="text" name="name" value="">
-         @if ($errors->has('name'))
-            <p class="alert-danger mt-2">{{ $errors->first('name') }}</p>
+         @if (!$errors->has('name'))
+            <label for="">Nhập tên Sản phẩm</label>
+            <input class="form-control" type="text" name="name" value="">
+         @else
+            <label for="">Nhập tên Sản phẩm</label>
+            <input class="form-control is-invalid" type="text" name="name" value="">
+            <p class="invalid-feedback mt-2 ">{{ $errors->first('name') }}</p>
          @endif
       </div>
 
       <div class="form-group">
-         <label for="">Giá tiền</label>
-         <input class="form-control" type="text" name="price">
-         @if ($errors->has('price'))
-            <p class="alert-danger mt-2">{{ $errors->first('price') }}</p>
+         @if (!$errors->has('price'))
+            <label for="">Giá tiền</label>
+            <input class="form-control" type="text" name="price">
+         @else
+            <label for="">Giá tiền</label>
+            <input class="form-control is-invalid" type="text" name="price">
+            <p class="invalid-feedback mt-2">{{ $errors->first('price') }}</p>
          @endif
       </div>
       <div class="form-group">
@@ -38,19 +44,25 @@
          </select>
 
       </div>
-      <div class="form-group">
-         <label for="">Ảnh</label>
-         <input type="file" class="form-control-file" id="" name="image">
-         @if ($errors->has('image'))
-            <p class="alert-danger mt-2">{{ $errors->first('image') }}</p>
+      <div class="custom-file mt-3 mb-3">
+         @if (!$errors->has('image'))
+            <input type="file" class="custom-file-input" id="" name="image">
+            <label class="custom-file-label" for="">Chọn ảnh...</label>
+         @else
+            <input type="file" class="custom-file-input is-invalid" id="" name="image">
+            <label class="custom-file-label" for="">Chọn ảnh...</label>
+            <p class="invalid-feedback mt-3 mb-3">{{ $errors->first('image') }}</p>
          @endif
       </div>
 
       <div class="form-group">
-         <label for="">Mô tả</label>
-         <textarea class="form-control" id="" rows="7" name="description"></textarea>
-         @if ($errors->has('description'))
-            <p class="alert-danger mt-2">{{ $errors->first('description') }}</p>
+         @if (!$errors->has('description'))
+            <label for="">Mô tả</label>
+            <textarea class="form-control" id="" rows="7" name="description"></textarea>
+         @else
+            <label for="">Mô tả</label>
+            <textarea class="form-control is-invalid" id="" rows="7" name="description"></textarea>
+            <p class="invalid-feedback mt-2">{{ $errors->first('description') }}</p>
          @endif
       </div>
    </div>
@@ -58,17 +70,23 @@
    <div class="col-md-6">
       
       <div class="form-group">
-         <label for="">Số lượng</label>
-         <input class="form-control" type="text" name="quantities">
-         @if ($errors->has('quantities'))
-            <p class="alert-danger mt-2">{{ $errors->first('quantities') }}</p>
+         @if (!$errors->has('quantities'))
+            <label for="">Số lượng</label>
+            <input class="form-control" type="text" name="quantities">
+         @else
+            <label for="">Số lượng</label>
+            <input class="form-control is-invalid" type="text" name="quantities">
+            <p class="invalid-feedback mt-2">{{ $errors->first('quantities') }}</p>
          @endif
       </div>
       <div class="form-group">
-         <label for="">Chi tiết</label>
-         <textarea class="form-control" id="" rows="21" name="detail"></textarea>
-         @if ($errors->has('detail'))
-            <p class="alert-danger mt-2">{{ $errors->first('detail') }}</p>
+         @if (!$errors->has('detail'))
+            <label for="">Chi tiết</label>
+            <textarea class="form-control" id="" rows="21" name="detail"></textarea>
+         @else
+            <label for="">Chi tiết</label>
+            <textarea class="form-control is-invalid" id="" rows="22" name="detail"></textarea>
+            <p class="invalid-feedback mt-2">{{ $errors->first('detail') }}</p>
          @endif
       </div>
    </div>

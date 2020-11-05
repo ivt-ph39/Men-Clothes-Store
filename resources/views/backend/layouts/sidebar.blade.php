@@ -12,7 +12,7 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{route('admin-dashboard')}}">
-          <span>Home</span></a>
+          <span>Dashboard</span></a>
       </li>
 
       <!-- Divider -->
@@ -25,8 +25,8 @@
         </a>
         <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('admin-category-index') }}">Xem danh sách</a>
-            <a class="collapse-item" href="{{ route('admin-category-create') }}">Thêm</a>
+            <a class="collapse-item" href="{{ route('categories.index') }}">Xem danh sách</a>
+            <a class="collapse-item" href="{{ route('categories.create') }}">Thêm</a>
           </div>
         </div>
       </li>
@@ -36,8 +36,8 @@
         </a>
         <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('admin-product-index') }}">Xem danh sách</a>
-            <a class="collapse-item" href="{{ route('admin-product-create') }}">Thêm</a>
+            <a class="collapse-item" href="{{ route('products.index') }}">Xem danh sách</a>
+            <a class="collapse-item" href="{{ route('products.create') }}">Thêm</a>
           </div>
         </div>
       </li>
@@ -47,7 +47,7 @@
         </a>
         <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('admin-order-index') }}">Quản lý đơn hàng</a>
+            <a class="collapse-item" href="{{ route('orders.index') }}">Quản lý đơn hàng</a>
           </div>
         </div>
       </li>
@@ -58,8 +58,8 @@
         </a>
         <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('admin-user-index') }}">Quản lý User</a>
-            <a class="collapse-item" href="{{ route('admin-user-create') }}">Tạo User mới</a>
+            <a class="collapse-item" href="{{ route('users.index') }}">Quản lý User</a>
+            <a class="collapse-item" href="{{ route('users.create') }}">Tạo User mới</a>
           </div>
         </div>
       </li>

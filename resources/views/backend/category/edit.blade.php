@@ -3,7 +3,7 @@
 @section('title') Add Category @endsection
 
 @section('content')
-<form action="{{route('admin-category-update', $category->id)}}" method="POST">
+<form action="{{route('categories.update', $category->id)}}" method="POST">
 	@csrf
 	@method('PUT')
 	<div class="form-group">

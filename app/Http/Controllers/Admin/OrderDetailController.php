@@ -3,18 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Order;
+use App\OrderDetail;
+use DB;
 use App\Http\Controllers\Controller;
 
-class OrderController extends Controller
+class OrderDetailController extends Controller
 {
-    public function __construct()
-    {
-        $orderStatus = Order::ORDER_STATUS;
-        view()->share([
-            'orderStatus' => $orderStatus
-        ]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = Order::paginate(10);
-        return view('backend.order.index', compact('order'));
+        
     }
 
     /**
@@ -55,7 +48,14 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        
+        $orderDetails = DB::table('products')
+            ->join('order_details', 'products.id', '=', 'order_details.product_id')
+            ->join('orders', 'order_details.order_id', '=', 'orders.id')
+            ->where('order_id', $id)
+            ->select('products.name as product_name', 'order_details.*', 'orders.total as total')
+            ->get();
+        // dd($orderDetail);
+        return view('backend.order.detail.show', compact('orderDetails'));
     }
 
     /**
